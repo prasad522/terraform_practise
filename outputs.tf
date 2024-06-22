@@ -36,9 +36,14 @@ output "cidr_block" {
 # Subnet Ouputs ############
 
 output "public_subnet_ids" {
-  value = module.public_subnets.subnet_ids
+  value = module.public_subnets.public_subnet_ids
 }
 
 output "private_subnet_ids" {
-  value = module.private_subnets.subnet_ids
+  value = module.private_subnets.private_subnet_ids
+}
+
+# Internet Gate Way ID ############
+output "igw_id" {
+  value = module.internet_gw.igw_id
 }

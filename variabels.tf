@@ -6,6 +6,7 @@ variable "ec2_ami_id" {
 variable "instance_type" {
 
 }
+
 variable "org" {
 
 }
@@ -19,7 +20,6 @@ variable "cidr_block" {
 variable "public_subnet_cidr" {
 
 }
-
 
 # Subnet variable declaration ##########
 

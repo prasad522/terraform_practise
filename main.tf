@@ -10,6 +10,9 @@ module "ec2-instance" {
   ec2_ami_id                = var.ec2_ami_id
   instance_type             = var.instance_type
   key_pair_name             = module.key_pair.key_pair_name
+  vpc_id = module.vpc.vpc_id
+  public_subnet_ids =  module.public_subnets.public_subnet_ids
+  security_group_id = module.security_group.security_group_id
   org                       = var.org
   env                       = var.env
   user_data_jenkins_install = file("/Users/prasadambati/Desktop/terraform_practise/Jenkins-Install/jenkins_-install.sh")
@@ -27,6 +30,11 @@ module "security_group" {
   vpc_id = module.vpc.vpc_id
   org    = var.org
   env    = var.env
+}
+
+module "internet_gw"{
+  source = "./internet_gate_way"
+  vpc_id = module.vpc.vpc_id
 }
 
 module "public_subnets" {
@@ -49,7 +57,12 @@ module "private_subnets" {
   subnet_type        = "private"
 }
 
-
-
+module "public_route_table" {
+  source = "./route-table"
+  vpc_id = module.vpc.vpc_id
+  igw_id = module.internet_gw.igw_id
+  org = var.org
+  env = var.env
+}
 
 
