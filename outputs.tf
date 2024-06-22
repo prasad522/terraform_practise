@@ -19,8 +19,8 @@ output "ssh_connection_string" {
 
 # Key-Pair related outputs
 
-output "public_key" {
-  value = module.key_pair.public_key
+output "key_pair_name" {
+  value = module.key_pair.key_pair_name
 }
 
 # VPC outputs#####################################

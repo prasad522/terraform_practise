@@ -9,7 +9,7 @@ module "ec2-instance" {
   source                    = "./ec2-instance"
   ec2_ami_id                = var.ec2_ami_id
   instance_type             = var.instance_type
-  public_key                = module.key_pair.public_key
+  key_pair_name             = module.key_pair.key_pair_name
   org                       = var.org
   env                       = var.env
   user_data_jenkins_install = file("/Users/prasadambati/Desktop/terraform_practise/Jenkins-Install/jenkins_-install.sh")

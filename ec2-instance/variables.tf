@@ -5,7 +5,7 @@ variable "instance_type" {
 
 }
 
-variable "public_key" {
+variable "key_pair_name" {
 
 }
 

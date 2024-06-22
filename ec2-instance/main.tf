@@ -1,8 +1,7 @@
-
 resource "aws_instance" "Jenkins-Server" {
   ami           = var.ec2_ami_id
   instance_type = var.instance_type
-  key_name      = "jenkins_pem_key_pair"
+  key_name      = var.key_pair_name
   tags = {
     Name = "${var.org}_${var.env}_Jenkins_Server"
     env  = var.env
