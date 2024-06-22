@@ -14,7 +14,7 @@ output "private_ip" {
 }
 
 output "ssh_connection_string" {
-  value = "ssh -i /Users/prasadambati/.ssh/id_ed25519.pub ec2-user@${module.ec2-instance.public_ip}"
+  value = "ssh -i /Users/prasadambati/.ssh/id_ed25519 ec2-user@${module.ec2-instance.public_ip}"
 }
 
 # Key-Pair related outputs

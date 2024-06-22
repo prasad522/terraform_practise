@@ -1,8 +1,8 @@
 module "key_pair" {
   source     = "./key-pair"
   public_key = file("/Users/prasadambati/.ssh/id_ed25519.pub")
-  org = var.org
-  env = var.env
+  org        = var.org
+  env        = var.env
 }
 
 module "ec2-instance" {
@@ -16,37 +16,37 @@ module "ec2-instance" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  source     = "./vpc"
   cidr_block = var.cidr_block
-  org = var.org
-  env = var.env
+  org        = var.org
+  env        = var.env
 }
 
 module "security_group" {
   source = "./security-group"
   vpc_id = module.vpc.vpc_id
-  org = var.org
-  env = var.env
+  org    = var.org
+  env    = var.env
 }
 
 module "public_subnets" {
-  source              = "./modules/subnet"
-  vpc_id              = module.vpc.vpc_id
-  subnet_cidr_blocks  = var.public_subnet_cidr_blocks
-  availability_zones  = var.availability_zones
-  org                 = var.org
-  env                 = var.env
-  subnet_type         = "public"
+  source             = "./subnet"
+  vpc_id             = module.vpc.vpc_id
+  subnet_cidr_blocks = var.public_subnet_cidr_blocks
+  availability_zones = var.availability_zones
+  org                = var.org
+  env                = var.env
+  subnet_type        = "public"
 }
 
 module "private_subnets" {
-  source              = "./modules/subnet"
-  vpc_id              = module.vpc.vpc_id
-  subnet_cidr_blocks  = var.private_subnet_cidr_blocks
-  availability_zones  = var.availability_zones
-  org                 = var.org
-  env                 = var.env
-  subnet_type         = "private"
+  source             = "./subnet"
+  vpc_id             = module.vpc.vpc_id
+  subnet_cidr_blocks = var.private_subnet_cidr_blocks
+  availability_zones = var.availability_zones
+  org                = var.org
+  env                = var.env
+  subnet_type        = "private"
 }
 
 

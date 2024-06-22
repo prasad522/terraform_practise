@@ -14,20 +14,14 @@ variable "env" {
 }
 
 variable "cidr_block" {
-  
+
 }
 variable "public_subnet_cidr" {
-  
+
 }
 
 
 # Subnet variable declaration ##########
-
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-west-1" 
-}
 
 variable "public_subnet_cidr_blocks" {
   description = "List of CIDR blocks for the public subnets"
@@ -44,7 +38,7 @@ variable "private_subnet_cidr_blocks" {
 variable "availability_zones" {
   description = "List of availability zones for the subnets"
   type        = list(string)
-  default     = ["us-west-2a", "us-west-2b", "us-west-2c"] // Change as needed
+  default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"] // Change as needed
 }
 
 
