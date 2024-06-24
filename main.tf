@@ -1,6 +1,6 @@
 module "key_pair" {
   source     = "./key-pair"
-  public_key = file("~/.ssh/id_ed25519.pub")
+  public_key = file(".ssh/id_ed25519.pub")
   org        = var.org
   env        = var.env
 }
@@ -15,7 +15,7 @@ module "ec2-instance" {
   security_group_id = module.security_group.security_group_id
   org                       = var.org
   env                       = var.env
-  user_data_jenkins_install = file("~/Jenkins-Install/jenkins_-install.sh")
+  user_data_jenkins_install = file("Jenkins-Install/jenkins_-install.sh")
 }
 
 module "vpc" {
