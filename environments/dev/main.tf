@@ -10,9 +10,9 @@ module "ec2-instance" {
   ec2_ami_id                = var.ec2_ami_id
   instance_type             = var.instance_type
   key_pair_name             = module.key_pair.key_pair_name
-  vpc_id = module.vpc.vpc_id
-  public_subnet_ids =  module.public_subnets.public_subnet_ids
-  security_group_id = module.security_group.security_group_id
+  vpc_id                    = module.vpc.vpc_id
+  public_subnet_ids         = module.public_subnets.public_subnet_ids
+  security_group_id         = module.security_group.security_group_id
   org                       = var.org
   env                       = var.env
   user_data_jenkins_install = file("../../Jenkins-Install/jenkins_-install.sh")
@@ -32,7 +32,7 @@ module "security_group" {
   env    = var.env
 }
 
-module "internet_gw"{
+module "internet_gw" {
   source = "../../modules/internet_gate_way"
   vpc_id = module.vpc.vpc_id
 }
@@ -61,8 +61,8 @@ module "public_route_table" {
   source = "../../modules/route-table"
   vpc_id = module.vpc.vpc_id
   igw_id = module.internet_gw.igw_id
-  org = var.org
-  env = var.env
+  org    = var.org
+  env    = var.env
 }
 
 
