@@ -45,6 +45,9 @@ jobs:
             - name: 'List the S3 Buckets'
               run: aws s3 ls
 
+            - name: 'Terraform workspace'
+              run: terraform workspace show
+
             - name: 'Terraform Initialize'
               run: terraform init
 
