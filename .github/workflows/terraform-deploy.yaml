@@ -44,8 +44,8 @@ jobs:
             - name: 'List the S3 Buckets'
               run: aws s3 ls
 
-            # - name: 'Terraform Initialize'
-            #   run: terraform init
+            - name: 'Terraform Initialize'
+              run: terraform init
             
             # - name: 'Terraform Format'
             #   run: terraform fmt -check
