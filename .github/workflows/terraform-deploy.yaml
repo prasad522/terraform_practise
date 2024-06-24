@@ -27,6 +27,7 @@ jobs:
               
             - name: 'Listthe files'
               run: |
+                pwd
                 ls ${{ github.workspace }}
 
             - name: 'Setup Terraform'
